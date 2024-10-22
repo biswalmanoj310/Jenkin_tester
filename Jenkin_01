@@ -1,15 +1,88 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Prepare') {
       steps {
-        echo "Manoj Biswal"
+        echo "I am preperating"
       }
     }
-    stage('Test') {
+    stage('Checkout') {
       steps {
-        echo hari
-        echo "Manoj Biswal"
+        echo "I am checking out code"
+      }
+    }
+    stage('TVP Checkout') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+
+    stage('Checkout Status') {
+      steps {
+        echo "Checkout Status"
+      }
+
+    }
+    stage('UI Build and Publish') {
+      steps {
+        echo "UI Build and Publish"
+      }
+
+    }
+    stage('BUILDS') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+    stage('Pub AFT and ULC and Evo Push') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+    stage('Junos/TVP Pointer Update') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+    stage('Parallel') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+    stage('Junos/TVP Pointer Commit') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+    stage('Image Copy') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+    stage('CI Sanities') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+  }
+    stage('Archive') {
+      steps {
+        echo "I am checking out tvp"
+      }
+
+    }
+  }
+    stage('Final Status') {
+      steps {
+        echo "I am checking out tvp"
       }
 
     }
