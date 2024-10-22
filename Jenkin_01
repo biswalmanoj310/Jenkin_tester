@@ -37,7 +37,7 @@ pipeline {
     }
 
 
-    changes {
+    changed {
       echo "----------------------"
       echo "ONLY on status change"
     }
