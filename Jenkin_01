@@ -6,13 +6,42 @@ pipeline {
         echo "Manoj Biswal"
       }
     }
-
     stage('Test') {
       steps {
         echo "Manoj Biswal"
       }
 
     }
+  }
+
+  post {
+    always{
+      echo "Always say: Ram Ram Ram"
+    }
+
+    success {
+      echo "----------------------"
+      echo "ONLY on SUCCESS"
+    }
+
+
+    failure {
+      echo "----------------------"
+      echo "ONLY on failure"
+    }
+
+
+    unstable {
+      echo "----------------------"
+      echo "ONLY on unstable"
+    }
+
+
+    changes {
+      echo "----------------------"
+      echo "ONLY on status change"
+    }
+
   }
 
 }
