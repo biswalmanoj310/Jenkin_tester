@@ -17,7 +17,6 @@ pipeline {
       }
 
     }
-
     stage('Checkout Status') {
       steps {
         echo "Checkout Status"
@@ -72,20 +71,19 @@ pipeline {
       }
 
     }
-  }
     stage('Archive') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
-  }
     stage('Final Status') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
+
   }
 
   post {
@@ -98,7 +96,6 @@ pipeline {
       echo "ONLY on SUCCESS"
     }
 
-
     failure {
       echo "----------------------"
       echo "ONLY on failure"
@@ -109,7 +106,6 @@ pipeline {
       echo "----------------------"
       echo "ONLY on unstable"
     }
-
 
     changed {
       echo "----------------------"
