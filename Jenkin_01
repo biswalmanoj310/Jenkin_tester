@@ -6,115 +6,144 @@ pipeline {
         echo "I am preperating"
       }
     }
+    
     stage('Checkout') {
-      steps {
-        parallel(
-          evo :{
-            echo "Checking Out Evo"
-          },
-          Junos :{
-            echo "Checking Out Junow"
-          },
-          UI :{
-            echo "Checking Out Junow"
-          },
-
-        )
-        // echo "I am checking out code"
-      }
+        parallel {
+            stage('EVO') {
+                steps {
+                    echo "Checking Out Evo"
+                }
+            }
+            stage('JUNOS') {
+                steps {
+                    echo "Checking Out Evo"
+                }
+            }
+            stage('UI') {
+                steps {
+                    echo "Checking Out Evo"
+                }
+            }
+            stage('TVP') {
+                steps {
+                    echo "Checking Out Evo"
+                }
+            }
+        }
     }
+    
     stage('TVP Checkout') {
       steps {
         echo "I am checking out tvp"
       }
       
     }
+    
     stage('Checkout Status') {
       steps {
         echo "Checkout Status"
       }
 
     }
+    
     stage('UI Build and Publish') {
       steps {
         echo "UI Build and Publish"
       }
 
     }
+    
     stage('BUILDS') {
-      steps {
-
-        parallel(
-          Component_Publish :{
-            echo "Checking Out Evo"
-          },
-          EVO_Build :{
-            echo "Checking Out Junow"
-          },
-          Junos_Build :{
-            echo "Checking Out Junow"
-          },
-          tvp_pre_aft :{
-            echo "Checking Out Junow"
-          },
-
-
-        )
-      }
-
+        parallel {
+            stage('Component_Publish') {
+                steps {
+                    echo "Component_Publish"
+                }
+            }
+            stage('EVO_Build') {
+                steps {
+                    echo "EVO_Build"
+                }
+            }
+        
+            stage('Junos_Build') {
+                    steps {
+                        echo "Junos_Build"
+                    }
+                }
+            
+            stage('tvp_pre_aft') {
+                    steps {
+                        echo "tvp_pre_aft"
+                    }
+                }
+        }
     }
+
     stage('Pub AFT and ULC and Evo Push') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
+    
     stage('Junos/TVP Pointer Update') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
-    stage('Parallel') {
-      steps {
-        parallel(
-          EVO_Publish :{
-            echo "Checking Out Junow"
-          },
-           Junos_Re_Package :{
-            echo "Checking Out Junow"
-          },
-           tvp_post_aft :{
-            echo "Checking Out Junow"
-          },
-        )
-      }
-
+    
+    stage('Parallel_work') {
+        parallel{
+            stage('EVO_Publish'){
+                steps {
+                    echo "EVO_Publish"
+                }
+            }
+            stage('Junos_Re_Package'){
+                steps {
+                    echo "Junos_Re_Package"
+                }
+            }
+            stage('tvp_post_aft'){
+                steps {
+                    echo "tvp_post_aft"
+                }
+            }
+        }
+            
+            
     }
+        
     stage('Junos/TVP Pointer Commit') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
+    
     stage('Image Copy') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
+    
     stage('CI Sanities') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
+    
     stage('Archive') {
       steps {
         echo "I am checking out tvp"
       }
 
     }
+    
     stage('Final Status') {
       steps {
         echo "I am checking out tvp"
@@ -151,5 +180,5 @@ pipeline {
     }
 
   }
-
 }
+
