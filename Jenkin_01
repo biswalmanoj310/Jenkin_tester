@@ -45,16 +45,16 @@ pipeline {
       steps {
 
         parallel(
-          Component Publish :{
+          Component_Publish :{
             echo "Checking Out Evo"
           },
-          EVO Build :{
+          EVO_Build :{
             echo "Checking Out Junow"
           },
-          Junos Build :{
+          Junos_Build :{
             echo "Checking Out Junow"
           },
-          tvp pre-aft :{
+          tvp_pre-aft :{
             echo "Checking Out Junow"
           },
 
