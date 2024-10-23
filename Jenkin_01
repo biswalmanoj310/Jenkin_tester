@@ -79,13 +79,13 @@ pipeline {
       steps {
         Parallel(
         
-          EVO Publish :{
+          EVO_Publish :{
             echo "Checking Out Junow"
           },
-           Junos Re-Package :{
+           Junos_Re_Package :{
             echo "Checking Out Junow"
           },
-           tvp post-aft :{
+           tvp_post_aft :{
             echo "Checking Out Junow"
           },
         )
