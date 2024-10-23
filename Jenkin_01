@@ -20,7 +20,7 @@ pipeline {
           },
 
         )
-        echo "I am checking out code"
+        // echo "I am checking out code"
       }
     }
     stage('TVP Checkout') {
@@ -77,8 +77,7 @@ pipeline {
     }
     stage('Parallel') {
       steps {
-        Parallel(
-        
+        parallel(
           EVO_Publish :{
             echo "Checking Out Junow"
           },
