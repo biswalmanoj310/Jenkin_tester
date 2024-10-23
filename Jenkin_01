@@ -8,6 +8,18 @@ pipeline {
     }
     stage('Checkout') {
       steps {
+        parallel(
+          evo :{
+            echo "Checking Out Evo"
+          },
+          Junos :{
+            echo "Checking Out Junow"
+          },
+          UI :{
+            echo "Checking Out Junow"
+          },
+
+        )
         echo "I am checking out code"
       }
     }
@@ -15,9 +27,7 @@ pipeline {
       steps {
         echo "I am checking out tvp"
       }
-
       
-
     }
     stage('Checkout Status') {
       steps {
@@ -33,7 +43,23 @@ pipeline {
     }
     stage('BUILDS') {
       steps {
-        echo "I am checking out tvp"
+
+        parallel(
+          Component Publish :{
+            echo "Checking Out Evo"
+          },
+          EVO Build :{
+            echo "Checking Out Junow"
+          },
+          Junos Build :{
+            echo "Checking Out Junow"
+          },
+          tvp pre-aft :{
+            echo "Checking Out Junow"
+          },
+
+
+        )
       }
 
     }
@@ -51,7 +77,18 @@ pipeline {
     }
     stage('Parallel') {
       steps {
-        echo "I am checking out tvp"
+        Parallel(
+        
+          EVO Publish :{
+            echo "Checking Out Junow"
+          },
+           Junos Re-Package :{
+            echo "Checking Out Junow"
+          },
+           tvp post-aft :{
+            echo "Checking Out Junow"
+          },
+        )
       }
 
     }
@@ -87,8 +124,6 @@ pipeline {
     }
 
   }
-
-
 
   post {
     always{
